@@ -1,1 +1,107 @@
 <!-- Start writing your project code in this file! -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5CHALLENGE</title>
+
+
+
+<!-- CSS CODE! -->
+    <style>
+        body {
+            justify-content: center;
+            background-color: rgb(12, 156, 156);
+
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .infobox {
+            width: 540px;
+            background: gray;
+            border-radius: 5px;
+            margin: 50px auto;
+            padding-left: 25px;
+            padding-right: 25px;
+            padding-top: 25px;
+            padding-bottom: 25px;
+        }
+
+        #ibox{
+            display: none;
+        }
+
+     .start_btn {
+      margin: 10px auto;
+
+     }
+    </style>
+
+</head>
+
+
+
+<!-- HTML CODE! -->
+<body>
+
+    <h1>5 CHALLENGE GAME</h1>
+
+    <!-- Start quiz button -->
+    <div class="start_btn" id="starquiz" onclick="showibox()"><button>StartQuiz</button></div>
+
+
+    <!-- Info box -->
+    <div class="infobox" id="ibox">
+        <div class="title">
+            <span>Information about the game</span>
+        </div>
+        <div class="infolist">
+            <div id="info1" class="info">Test</div>
+            <div id="info2" class="info">Test</div>
+            <div id="info3" class="info">Test</div>
+            <div id="info4" class="info">Test</div>
+        </div>
+        <footer>
+            <button id="startgame">Start</button>
+            <button id="quitgame">Quit</button>
+        </footer>
+
+    </div>
+
+
+    <!-- quiz Box -->
+    <div class="quiz_box" id="qbox">
+        <header>
+            <div class="Timer">10</div>
+        </header>
+        <section>
+            <div class="question"></div>
+            <div class="options"></div>
+        </section>
+        <footer>
+            <button id="nextbtn">Next</button>
+        </footer>
+
+    </div>
+
+
+
+
+    <!-- Javascript -->
+    <script>
+
+        function showibox(){
+          document.getElementById("ibox").style.display = "block";
+        }
+
+    </script>
+</body>
+
+</html>
