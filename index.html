@@ -13,66 +13,31 @@
 
     <!-- CSS CODE! -->
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-
-        }
-
         body {
             justify-content: center;
-            background: rgb(2, 0, 36);
-            background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(105, 9, 121, 1) 46%, rgba(0, 212, 255, 1) 100%);
+            background-color: rgb(12, 156, 156);
+
         }
 
         h1 {
             text-align: center;
-            font-size: 28px;
-            color: #fff;
-            margin-top: 100px;
-            
         }
-
-
 
         .infobox {
             width: 540px;
             background: gray;
             border-radius: 5px;
             margin: 50px auto;
-            padding: 25px;
+            padding-left: 25px;
+            padding-right: 25px;
+            padding-top: 25px;
+            padding-bottom: 25px;
         }
 
         #ibox {
             display: none;
         }
-
-        .start_btn {
-            margin-top: 20px;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        .start_btn button {
-            padding: 10px 20px;
-            font-size: 20px;
-            cursor: pointer;
-            
-            border: none;
-            border-radius: 5px;
-            background-color: #fff;
-            color: #000;
-        }
-
-        #nextbtn{
-            display:none ;
-        }
     </style>
-
-
 </head>
 
 
@@ -84,23 +49,26 @@
     <h1>5 CHALLENGE GAME</h1>
 
     <!-- Start quiz button -->
-    <div class="start_btn" id="starquiz" onclick="showibox()"><button>Start Quiz</button></div>
+    <div class="start_btn" id="starquiz" onclick="showibox()"><button>StartQuiz</button></div>
 
 
     <!-- Info box -->
     <div class="infobox" id="ibox">
-        <div class="info-title"><span>Rules of this Quiz</span></div>
-        <div class="info-list">
-          <div class="info">1. You have <span>10 seconds</span> per question.</div>
-          <div class="info">2. Once you pick an answer, you can't change it.</div>
-          <div class="info">3. You can’t answer after time’s up.</div>
-          <div class="info">4. You can't exit during the quiz.</div>
-          <div class="info">5. Points are based on correct answers.</div>
+        <div class="title">
+            <span>Information About the Game</span>
+        </div>
+        <div class="infolist">
+            <div id="info1" class="info">1. You have <span>10 seconds</span> per question</div>
+            <div id="info2" class="info">2. Once you pick an answer, you can't change it</div>
+            <div id="info3" class="info">3. You can't answer after time's up</div>
+            <div id="info4" class="info">4. You can't exit during the quiz</div>
+            <div id="info4" class="info">5. Points are based on correct answers</div>
         </div>
         <div class="buttons">
-          <button class="quit">Exit</button>
-          <button class="restart">Continue</button>
+            <button class="quit" id="startgame">Continue</button>
+            <button id="restart">Exit</button>
         </div>
+    
     </div>
 
 
@@ -127,7 +95,6 @@
 
         function showibox() {
             document.getElementById("ibox").style.display = "block";
-            document.getElementById("starquiz").style.display = "none"
         }
 
     </script>
