@@ -15,12 +15,16 @@
     <style>
         body {
             justify-content: center;
-            background-color: rgb(12, 156, 156);
-
+            background: rgb(2, 0, 36);
+            background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(105, 9, 121, 1) 46%, rgba(0, 212, 255, 1) 100%);
         }
 
         h1 {
             text-align: center;
+            font-size: 28px;
+            color: #fff;
+            margin-top: 100px;
+
         }
 
         .infobox {
@@ -68,23 +72,66 @@
             <button class="quit" id="startgame">Continue</button>
             <button id="restart">Exit</button>
         </div>
-    
+
     </div>
 
 
     <!-- quiz Box -->
-    <div class="quiz_box" id="qbox">
+    <div class="quiz_box" id="qbox" style="display: none;">
         <header>
-            <div class="Timer">10</div>
+            <!-- Timer display showing time remaining for current question -->
+            <div class="timer">
+                <div class="time_left_txt">Time Left</div>
+                <div class="timer_sec">10</div>
+            </div>
         </header>
+
+        <!-- Quiz section containing questions and options -->
         <section>
-            <div class="question"></div>
-            <div class="options"></div>
+            <!-- Container for question text -->
+            <div class="que_text"></div>
+            <!-- Container for multiple choice options -->
+            <div class="option_list"></div>
+
+            <!-- Word scramble game container (hidden by default) -->
+            <div class="word_scramble_container" style="display: none;">
+                <!-- Shows scrambled letters -->
+                <div class="letters_container"></div>
+                <!-- Input area for user to type unscrambled word -->
+                <div class="input_container">
+                    <input type="text" class="user_input" placeholder="Type your answer here...">
+                    <button class="submit_btn">Submit</button>
+                </div>
+            </div>
+
+            <!-- Memory game container (hidden by default) -->
+            <div class="memory_game_container" style="display: none;">
+                <!-- Grid where memory cards will be placed -->
+                <div class="memory_grid"></div>
+            </div>
         </section>
         <footer>
-            <button id="nextbtn">Next</button>
+            <!-- Shows current question number (e.g. "1 of 5") -->
+            <div class="total_que"></div>
+            <!-- Button to go to next question -->
+            <button class="next_btn">Next</button>
         </footer>
 
+    </div>
+
+
+    <!-- Result box - shows final score when quiz is complete -->
+    <div class="result_box" id="results" style="display: none;">
+        <div class="icon"><i class="fas fa-crown"></i></div>
+        <div class="complete_text">You completed the Quiz!</div>
+        <!-- Will display the final score -->
+        <div class="score_text"></div>
+        <div class="buttons">
+            <!-- Button to play the quiz again -->
+            <button class="restart">Replay</button>
+            <!-- Button to exit the quiz -->
+            <button class="quit">Quit</button>
+        </div>
     </div>
 
 
