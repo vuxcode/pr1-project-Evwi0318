@@ -470,8 +470,8 @@
             <div class="info">5. Points are based on correct answers</div>
         </div>
         <div class="buttons">
-            <button class="quit">Exit</button>
-            <button class="restart">Continue</button>
+            <button class="quit" id="exitBtn">Exit</button>
+            <button class="restart" id="continueBtn">Continue</button>
         </div>
 
     </div>
@@ -482,26 +482,26 @@
         <header>
             <!-- Timer display showing time remaining for current question -->
             <div class="timer">
-                <div class="time_left_txt">Time Left</div>
-                <div class="timer_sec">10</div>
+                <div class="time_left_txt" id="timetext">Time Left</div>
+                <div class="timer_sec" id="timecount">10</div>
             </div>
         </header>
 
         <!-- Quiz section containing questions and options -->
         <section>
             <!-- Container for question text -->
-            <div class="que_text"></div>
+            <div class="que_text" id="quetext"></div>
             <!-- Container for multiple choice options -->
-            <div class="option_list"></div>
+            <div class="option_list" id="optionlist"></div>
 
-            <!-- Word scramble game container (hidden by default) -->
+            <!-- Word scramble game container  -->
             <div class="word_scramble_container" id="wordscramblegame">
                 <!-- Shows scrambled letters -->
-                <div class="letters_container"></div>
+                <div class="letters_container" id="lettercont"></div>
                 <!-- Input area for user to type unscrambled word -->
-                <div class="input_container">
+                <div class="input_container" id="userInputcont">
                     <input type="text" class="user_input" placeholder="Type your answer here...">
-                    <button class="submit_btn">Submit</button>
+                    <button class="submit_btn" id="submitbtn">Submit</button>
                 </div>
             </div>
 
@@ -513,9 +513,9 @@
         </section>
         <footer>
             <!-- Shows current question number (e.g. "1 of 5") -->
-            <div class="total_que"></div>
+            <div class="total_que" id="totalque"></div>
             <!-- Button to go to next question -->
-            <button class="next_btn">Next</button>
+            <button class="next_btn" id="nextbtn">Next</button>
         </footer>
 
     </div>
@@ -530,9 +530,9 @@
         <div class="score_text"></div>
         <div class="buttons">
             <!-- Button to play the quiz again -->
-            <button class="restart">Replay</button>
+            <button class="restart" id="restartbtn">Replay</button>
             <!-- Button to exit the quiz -->
-            <button class="quit">Quit</button>
+            <button class="quit" id="quitbtn">Quit</button>
         </div>
     </div>
 
@@ -614,19 +614,91 @@
 
 
 
-
+        // Variables for Game ======================================================
 
 
 
         //Adding all the html elements in to variables in js
         var startbtn = document.getElementById("startquiz");
-        var infobox = document.getElementById("ibox");
+        var infoBox = document.getElementById("ibox");
+        var exitBtn = document.getElementById("exitBtn");
+        var continueBtn = document.getElementById("continueBtn");
+        var quizBox = document.getElementById("qbox");
+        var resultBox = document.getElementById("resultBox");
+        var optionList = document.getElementById("optionlist");
+        var timeText = document.getElementById("timetext");
+        var timeCount = document.getElementById("timecount");
+        var restartQuizBtn = document.getElementById("restartbtn");
+        var quitQuizBtn = document.getElementById("quitbtn");
+        var nextBtn = document.getElementById("nextbtn");
+        var queText = document.getElementById("quetext");
+        var totalQue = document.getElementById("totalque");
+        var wordScrambleContainer = document.getElementById("wordscramblegame");
+        var lettersContainer = document.getElementById("lettercont");
+        var userInput = document.getElementById("userInputcont");
+        var submitBtn = document.getElementById("submitbtn");
+        var memoryGameContainer = document.getElementById("memorygame");
 
+
+        // Variables to track quiz state
+        var timeValue = 10;        // Time per question (seconds)
+        var queCount = 0;          // Current question index
+        var queNumb = 1;           // Current question number (display)
+        var userScore = 0;         // Correct answers count
+        var counter;               // Timer interval reference
+        var widthValue = 0;        // For timeline animation (not currently used)
+        var tickIcon = '<div class="icon tick"><i class="fas fa-check"></i></div>';  // Correct answer icon
+        var crossIcon = '<div class="icon cross"><i class="fas fa-times"></i></div>'; // Wrong answer icon
+
+        // Memory game specific variables
+        var flippedCards = [];     // Stores currently flipped cards
+        var matchedPairs = 0;      // Counts matched pairs in memory game
+
+
+
+
+
+
+
+        // EVENT LISTENERS ======================================================
 
         //hides start btn and shows info box when user press start quiz
-        startbtn.onclick = function() {
-      infobox.classList.add("activeInfo");
-    };
+        startbtn.onclick = function () {
+            infoBox.classList.add("activeInfo");
+        };
+
+        // When exit button is clicked, hide the info box
+        exitBtn.onclick = function () {
+            infoBox.classList.remove("activeInfo");
+        };
+
+        // When continue button is clicked, start the quiz
+        continueBtn.onclick = function () {
+            infoBox.classList.remove("activeInfo");
+            quizBox.classList.add("activeQuiz");
+            showQuestion(queCount);  // Show first question
+            startTimer(timeValue);   // Start timer
+            setCounter(queNumb);    // Show question counter (1 of 5)
+        };
+
+        // When restart button is clicked (from results), reset and start quiz again
+        restartQuizBtn.onclick = function () {
+            resultBox.classList.remove("activeResult");
+            quizBox.classList.add("activeQuiz");
+            resetQuiz();            // Reset all quiz variables
+            showQuestion(queCount); // Show first question
+            startTimer(timeValue);  // Start timer
+            setCounter(queNumb);   // Show question counter
+
+        };
+
+        // When quit button is clicked, reload the page
+        quitQuizBtn.onclick = function () {
+            window.location.reload();
+        };
+
+
+
 
     </script>
 </body>
