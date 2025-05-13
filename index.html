@@ -182,6 +182,10 @@
         //Adding all the html elements in to variables in js
         var startbtn = document.getElementById("startquiz");
         var infoBox = document.getElementById("ibox");
+        var exitBtn = document.getElementById("exitBtn");
+        var continueBtn = document.getElementById("continueBtn");
+        var quizBox = document.getElementById("qbox");
+        var resultBox = document.getElementById("resultBox");
 
 
 
@@ -203,6 +207,16 @@
             infoBox.style.display = "none";
             startbtn.style.display = "block";
         };
+
+         // When continue button is clicked, hide the info box, start game
+        continueBtn.onclick = function () {
+            infoBox.style.display = "none";
+            startbtn.style.display = "none";
+            quizBox.style.display = "block"
+        };
+
+
+
 
 
 
