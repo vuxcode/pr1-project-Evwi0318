@@ -155,11 +155,32 @@
     <script>
 
 
+        // Variables for Game ======================================================
+
+        //Adding all the html elements in to variables in js
+        var startbtn = document.getElementById("startquiz");
+        var infoBox = document.getElementById("ibox");
 
 
 
 
 
+
+        
+        // EVENT LISTENERS ======================================================
+
+        //hides start btn and shows info box when user press start quiz
+        startbtn.onclick = function () {
+            infoBox.style.display = "block";
+            startbtn.style.display = "none";
+        };
+
+
+        // When exit button is clicked, hide the info box
+        exitBtn.onclick = function () {
+            infoBox.style.display = "none";
+            startbtn.style.display = "block";
+        };
 
 
 
