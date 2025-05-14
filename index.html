@@ -138,29 +138,38 @@
             flex-direction: column;
             gap: 20px;
             align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .option_list .opt{
+            font-weight: bold;
+          
         }
 
         .quiz_box .option_list button {
             gap: 20px;
             cursor: pointer;
-            border-radius: 5px;
+            border-radius: 10px;
             padding: 10px 20px;
             margin: 0;
             width: 80%;
+            
         }
 
         .quiz_box footer {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
+            align-items: center;
             background-color: rgba(0, 0, 0, 0.516);
             border-radius: 5px;
-            padding: 10px 10px;
+            padding: 10px;
             height: 31px;
             width: 520px;
         }
 
         .quiz_box footer .next_btn {
             width: 100px;
+            height: 31px;
             border-radius: 10px;
             cursor: pointer;
         }
@@ -211,7 +220,16 @@
     </div>
 
 
-    <!-- quiz Boxes -->
+
+
+
+
+
+
+
+
+
+    <!-- quiz Box -->
     <div class="quiz_box" id="qbox">
         <header>
             <!-- Timer display showing time remaining for current question -->
@@ -225,16 +243,15 @@
         <section>
             <!-- Container for question text -->
             <div class="que_text" id="quetext">
-                <P>1. WHAT DOES HTML STAND FOR?
-                <P>
+                <P>1. WHAT DOES HTML STAND FOR?<P>
             </div>
             <!-- Container for multiple choice options -->
             <div class="option_list" id="optionlist">
 
                 <button class="opt">HYPER TEXT MARKUP LANGUAGE</button>
-                <button class="opt">HYPER TEXT MARKUP LANGUAGE</button>
-                <button class="opt">HYPER TEXT MARKUP LANGUAGE</button>
-                <button class="opt">HYPER TEXT MARKUP LANGUAGE</button>
+                <button class="opt">HYPER TRANSFORMATION MULTI LANGUAGE</button>
+                <button class="opt">HYPER TOOL MAKING LANGUAGE</button>
+                <button class="opt">HOVER TYPE MAKESHIFT LANGUAGE</button>
 
             </div>
 
@@ -250,12 +267,16 @@
         </section>
         <footer>
             <!-- Shows current question number (e.g. "1 of 5") -->
-            <div class="total_que" id="totalque"></div>
+            <div class="total_que" id="totalque">
+                <p>1 of 5 Questions</p>
+            </div>
             <!-- Button to go to next question -->
             <button class="next_btn" id="nextbtn">Next</button>
         </footer>
 
     </div>
+
+
 
 
     <!-- Result box - shows final score when quiz is complete -->
@@ -286,8 +307,39 @@
 
     <!-- Javascript -->
     <script>
-
-
+        
+   // Array containing all quiz questions and their data
+       var questions = [
+   
+      {
+        numb: 2,
+        question: "What does CSS stand for?",
+        answer: "Cascading Style Sheet",
+        options: [
+          "Common Style Sheet",
+          "Colorful Style Sheet",
+          "Computer Style Sheet",
+          "Cascading Style Sheet"
+        ]
+      },
+      {
+        numb: 3,
+        question: "Unscramble the letters (B,D,E,R,A) to form a word:",
+        answer: "bread",
+      },
+      {
+        numb: 4,
+        question: "What country gave the usa the statue of liberty?",
+        answer: "France",
+        options: [
+          "France",
+          "Mexico",
+          "UK",
+          "Sweden"
+        ]
+      },
+    
+    ];
 
 
 
@@ -300,6 +352,7 @@
         var exitBtn = document.getElementById("exitBtn");
         var continueBtn = document.getElementById("continueBtn");
         var quizBox = document.getElementById("qbox");
+        var nextBtn = document.getElementById("nextbtn");
         var resultBox = document.getElementById("resultBox");
 
 
@@ -329,6 +382,11 @@
             infoBox.style.display = "none";
             startbtn.style.display = "none";
             quizBox.style.display = "block"
+        };
+
+         // When continue button is clicked, hide the info box, start game
+        nextBtn.onclick = function () {
+           
         };
 
 
