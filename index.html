@@ -65,8 +65,8 @@
             padding-bottom: 15px;
             padding-right: 15px;
             max-width: 50;
-            border-radius: 5px;
-            box-shadow: 8px 8px #000;
+
+
 
         }
 
@@ -81,7 +81,7 @@
             color: #5372F0;
         }
 
-        .total_que span{
+        .total_que span {
             color: #fff;
         }
 
@@ -210,7 +210,7 @@
         </div>
 
         <div class="info-list">
-            <div class="info">1. You have <span>5</span> seconds per question</div>
+            <div class="info">1. You have <span>15</span> seconds per question</div>
             <div class="info">2. Once you pick an answer, you can't change it</div>
             <div class="info">3. You can't answer after time's up</div>
             <div class="info">4. You can't exit during the quiz</div>
@@ -233,13 +233,13 @@
 
 
 
-    <!-- quiz Box -->
+    <!-- quizBox1 -->
     <div class="quiz_box" id="qbox">
         <header>
             <!-- Timer display showing time remaining for current question -->
             <div class="timer">
                 <div class="time_left_txt" id="timetext">Time Left</div>
-                <div class="timer_sec" id="timecount">5</div>
+                <div class="timer_sec" id="timecount"></div>
             </div>
         </header>
 
@@ -247,16 +247,10 @@
         <section>
             <!-- Container for question text -->
             <div class="que_text" id="quetext">
-                <P>1. WHAT DOES HTML STAND FOR?
-                <P>
+                
             </div>
             <!-- Container for multiple choice options -->
             <div class="option_list" id="optionlist">
-
-                <button class="opt">HYPER TEXT MARKUP LANGUAGE</button>
-                <button class="opt">HYPER TRANSFORMATION MULTI LANGUAGE</button>
-                <button class="opt">HYPER TOOL MAKING LANGUAGE</button>
-                <button class="opt">HOVER TYPE MAKESHIFT LANGUAGE</button>
 
             </div>
 
@@ -276,7 +270,7 @@
             </div>
 
             <!-- Button to go to next question -->
-            <button class="next_btn" id="nextbtn">Next</button>
+            <button class="next_btn" id="nextbtn" style="display: none;">Next</button>
         </footer>
 
     </div>
@@ -394,14 +388,31 @@
         };
 
 
-        // When continue button is clicked, hide the info box, start game
+        // When continue button is clicked, hide the info box, start game and Timer
         continueBtn.onclick = function () {
             infoBox.style.display = "none";
             startbtn.style.display = "none";
             quizBox.style.display = "block"
+
+
+            var timeLeft = 15;
+            var timerDisplay = document.getElementById("timecount");
+
+            timerDisplay.textContent = timeLeft;
+
+            var timer = setInterval(function () {
+                timeLeft--;
+                if (timeLeft <= 0) {
+                    clearInterval(timer);
+                    timerDisplay.textContent = "Time's up!";
+                    // You can add more logic here if needed (e.g. disable answers)
+                } else {
+                    timerDisplay.textContent = timeLeft;
+                }
+            }, 1000);
         };
 
-        // When continue button is clicked, hide the info box, start game
+        // When next button is clicked, it goes to next question
         nextBtn.onclick = function () {
 
         };
