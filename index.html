@@ -57,7 +57,7 @@
         .word_scramble_container {
             display: none;
             width: 540px;
-            margin: 50px auto;
+            margin: 90px auto;
             background: #2d2d2d;
             color: #fff;
             padding-left: 15px;
@@ -75,6 +75,10 @@
             font-size: 30px;
             font-weight: 600px;
 
+        }
+
+        span {
+            color: #5372F0;
         }
 
         .info_box .info-list .info {
@@ -104,54 +108,62 @@
             cursor: pointer;
         }
 
-        .time_left_txt{
+        .timer{
+            display: block;
+            background-color: rgba(0, 0, 0, 0.516);
+            border-radius: 5px;
+            padding: 10px 10px;
+          
+        }
+
+        .time_left_txt {
             text-align: center;
             margin-bottom: 5px;
         }
 
-        .timer_sec{
+        .timer_sec {
             text-align: center;
         }
 
-        .que_text{
+        .que_text {
             text-align: center;
             margin-top: 40px;
             font-weight: bold;
             font-size: 30px;
-          
+
         }
 
-        .option_list{
+        .option_list {
             display: flex;
-            justify-content: center;
-            align-items: center;            
-            
+            flex-direction: column;
             gap: 20px;
+            align-items: center;
         }
 
-        .quiz_box .option_list button{
-                gap: 20px;
-                cursor: pointer;
-                border-radius: 5px;
-                margin-bottom: 45px;
-                margin-top: 45px;
+        .quiz_box .option_list button {
+            gap: 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            padding: 10px 20px;
+            margin: 0;
+            width: 80%;
         }
 
         .quiz_box footer {
             display: flex;
             justify-content: center;
+            background-color: rgba(0, 0, 0, 0.516);
+            border-radius: 5px;
+            padding: 10px 10px;
             height: 31px;
-            width: 536px;
+            width: 520px;
         }
 
-          .quiz_box footer .next_btn {
-           width: 100px;
-           border-radius: 10px;
-           cursor: pointer;
+        .quiz_box footer .next_btn {
+            width: 100px;
+            border-radius: 10px;
+            cursor: pointer;
         }
-
-
-
     </style>
 </head>
 
@@ -180,11 +192,12 @@
     <!-- Info boxe -->
     <div class="info_box" id="ibox">
         <div class="info-title">
-            <span>GAME RULES !</span>
+            <p>GAME RULES !
+            <p>
         </div>
-        
+
         <div class="info-list">
-            <div class="info">1. You have 5 seconds per question</div>
+            <div class="info">1. You have <span>5</span> seconds per question</div>
             <div class="info">2. Once you pick an answer, you can't change it</div>
             <div class="info">3. You can't answer after time's up</div>
             <div class="info">4. You can't exit during the quiz</div>
@@ -212,16 +225,17 @@
         <section>
             <!-- Container for question text -->
             <div class="que_text" id="quetext">
-                <P>1. WHAT DOES HTML STAND FOR?<P>
+                <P>1. WHAT DOES HTML STAND FOR?
+                <P>
             </div>
             <!-- Container for multiple choice options -->
             <div class="option_list" id="optionlist">
-               
+
                 <button class="opt">HYPER TEXT MARKUP LANGUAGE</button>
                 <button class="opt">HYPER TEXT MARKUP LANGUAGE</button>
                 <button class="opt">HYPER TEXT MARKUP LANGUAGE</button>
                 <button class="opt">HYPER TEXT MARKUP LANGUAGE</button>
-                
+
             </div>
 
             <!-- Word scramble game container  -->
