@@ -81,6 +81,10 @@
             color: #5372F0;
         }
 
+        .total_que span{
+            color: #fff;
+        }
+
         .info_box .info-list .info {
             margin: 5px 0;
             font-size: 17px;
@@ -108,12 +112,12 @@
             cursor: pointer;
         }
 
-        .timer{
+        .timer {
             display: block;
             background-color: rgba(0, 0, 0, 0.516);
             border-radius: 5px;
             padding: 10px 10px;
-          
+
         }
 
         .time_left_txt {
@@ -141,9 +145,9 @@
             margin-bottom: 40px;
         }
 
-        .option_list .opt{
+        .option_list .opt {
             font-weight: bold;
-          
+
         }
 
         .quiz_box .option_list button {
@@ -153,7 +157,7 @@
             padding: 10px 20px;
             margin: 0;
             width: 80%;
-            
+
         }
 
         .quiz_box footer {
@@ -243,7 +247,8 @@
         <section>
             <!-- Container for question text -->
             <div class="que_text" id="quetext">
-                <P>1. WHAT DOES HTML STAND FOR?<P>
+                <P>1. WHAT DOES HTML STAND FOR?
+                <P>
             </div>
             <!-- Container for multiple choice options -->
             <div class="option_list" id="optionlist">
@@ -268,8 +273,8 @@
         <footer>
             <!-- Shows current question number (e.g. "1 of 5") -->
             <div class="total_que" id="totalque">
-                <p>1 of 5 Questions</p>
             </div>
+
             <!-- Button to go to next question -->
             <button class="next_btn" id="nextbtn">Next</button>
         </footer>
@@ -307,39 +312,51 @@
 
     <!-- Javascript -->
     <script>
-        
-   // Array containing all quiz questions and their data
-       var questions = [
-   
-      {
-        numb: 2,
-        question: "What does CSS stand for?",
-        answer: "Cascading Style Sheet",
-        options: [
-          "Common Style Sheet",
-          "Colorful Style Sheet",
-          "Computer Style Sheet",
-          "Cascading Style Sheet"
-        ]
-      },
-      {
-        numb: 3,
-        question: "Unscramble the letters (B,D,E,R,A) to form a word:",
-        answer: "bread",
-      },
-      {
-        numb: 4,
-        question: "What country gave the usa the statue of liberty?",
-        answer: "France",
-        options: [
-          "France",
-          "Mexico",
-          "UK",
-          "Sweden"
-        ]
-      },
-    
-    ];
+
+        // Array containing all quiz questions and their data
+        var questions = [
+
+
+            {
+                numb: 1,
+                question: "WHAT DOES HTML STAND FOR?",
+                answer: "HYPER TEXT MARKUP LANGUAGE",
+                options: [
+                    "HYPER TEXT MARKUP LANGUAGE",
+                    "HYPER TRANSFORMATION MULTI LANGUAGE",
+                    "HYPER TOOL MAKING LANGUAGE",
+                    "HOVER TYPE MAKESHIFT LANGUAGE"
+                ]
+            },
+            {
+                numb: 2,
+                question: "What does CSS stand for?",
+                answer: "Cascading Style Sheet",
+                options: [
+                    "Common Style Sheet",
+                    "Colorful Style Sheet",
+                    "Computer Style Sheet",
+                    "Cascading Style Sheet"
+                ]
+            },
+            {
+                numb: 3,
+                question: "Unscramble the letters (B,D,E,R,A) to form a word:",
+                answer: "bread",
+            },
+            {
+                numb: 4,
+                question: "What country gave the usa the statue of liberty?",
+                answer: "France",
+                options: [
+                    "France",
+                    "Mexico",
+                    "UK",
+                    "Sweden"
+                ]
+            },
+
+        ];
 
 
 
@@ -384,9 +401,9 @@
             quizBox.style.display = "block"
         };
 
-         // When continue button is clicked, hide the info box, start game
+        // When continue button is clicked, hide the info box, start game
         nextBtn.onclick = function () {
-           
+
         };
 
 
