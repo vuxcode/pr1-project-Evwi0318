@@ -150,6 +150,11 @@
 
         }
 
+        .option_list .opt1 {
+            font-weight: bold;
+
+        }
+
         .quiz_box .option_list button {
             gap: 20px;
             cursor: pointer;
@@ -251,10 +256,10 @@
             </div>
             <!-- Container for multiple choice options -->
             <div class="option_list" id="optionlist">
-                <button class="opt">HYPER TEXT MARKUP LANGUAGE</button>
-                <button class="opt">HYPER TRANSFORMATION MULTI LANGUAGE</button>
-                <button class="opt">HYPER TOOL MAKING LANGUAGE</button>
-                <button class="opt">HOVER TYPE MAKESHIFT LANGUAGE</button>
+                <button class="opt" id="1">HYPER TEXT MARKUP LANGUAGE</button>
+                <button class="opt" id="2">HYPER TRANSFORMATION MULTI LANGUAGE</button>
+                <button class="opt" id="3">HYPER TOOL MAKING LANGUAGE</button>
+                <button class="opt" id="4">HOVER TYPE MAKESHIFT LANGUAGE</button>
             </div>
 
             <!-- Word scramble game container  -->
@@ -294,11 +299,11 @@
         </header>
         <section>
             <div class="que_text">2. What does CSS stand for?</div>
-            <div class="option_list">
-                <button class="opt">Common Style Sheet</button>
-                <button class="opt">Colorful Style Sheet</button>
-                <button class="opt">Computer Style Sheet</button>
-                <button class="opt">Cascading Style Sheet</button>
+            <div class="option_list" id="optionlist2">
+                <button class="opt" id="5">Common Style Sheet</button>
+                <button class="opt" id="6">Colorful Style Sheet</button>
+                <button class="opt" id="7">Computer Style Sheet</button>
+                <button class="opt" id="8">Cascading Style Sheet</button>
             </div>
         </section>
         <footer>
@@ -352,11 +357,12 @@
         </header>
         <section>
             <div class="que_text">4. What country gave the USA the Statue of Liberty?</div>
-            <div class="option_list">
-                <button class="opt">France</button>
-                <button class="opt">Mexico</button>
-                <button class="opt">UK</button>
-                <button class="opt">Sweden</button>
+            <div class="option_list" id="optionlist3">
+
+                <button class="opt" id="9">France</button>
+                <button class="opt" id="10">Mexico</button>
+                <button class="opt" id="11">UK</button>
+                <button class="opt" id="12">Sweden</button>
             </div>
         </section>
         <footer>
@@ -414,15 +420,31 @@
         var queText = document.getElementById("quetext");
         var totalQue = document.getElementById("totalque");
 
+        //buttons for question options
+        var button1 = document.getElementById("1");
+        var button2 = document.getElementById("2");
+        var button3 = document.getElementById("3");
+        var button4 = document.getElementById("4");
+
+        var button5 = document.getElementById("5");
+        var button6 = document.getElementById("6");
+        var button7 = document.getElementById("7");
+        var button8 = document.getElementById("8");
+
+        var button9 = document.getElementById("9");
+        var button10 = document.getElementById("10");
+        var button11 = document.getElementById("11");
+        var button12 = document.getElementById("12");
+
+
+
+
 
 
 
         // Variables to track quiz state
         var timerDisplay = document.getElementById("timecount");
         var timeValue = 15;        // Time per question (seconds)
-        var queCount = 0;          // Current question index
-        var queNumb = 1;           // Current question number (display)
-        var userScore = 0;         // Correct answers count
 
 
 
@@ -458,6 +480,66 @@
             startTimer();
 
         };
+
+
+        //Q1 WHEN BUTTON OPTIONS IS CLICKED, DISABLE THE REST OF THE BUTTONS
+        button1.onclick = function () {
+            
+            button1.style.background = "green";
+            button1.style.color = "white";
+
+            button2.disabled = true;
+            button3.disabled = true;
+            button4.disabled = true;
+
+            
+
+            nextBtn.style.display ="block";
+        }
+
+        button2.onclick = function () {
+            button2.style.background = "red";
+            button2.style.color = "white";
+            button1.style.background = "green";
+            button1.style.color = "white";
+
+            button1.disabled = true;
+            button3.disabled = true;
+            button4.disabled = true;
+
+            nextBtn.style.display ="block";
+        }
+
+
+        button3.onclick = function () {
+            button3.style.background = "red";
+            button3.style.color = "white";
+            button1.style.background = "green";
+            button1.style.color = "white";
+
+            button1.disabled = true;
+            button2.disabled = true;
+            button4.disabled = true;
+
+            nextBtn.style.display ="block";
+        }
+
+        button4.onclick = function () {
+            button4.style.background = "red";
+            button4.style.color = "white";
+            button1.style.background = "green";
+            button1.style.color = "white";
+
+            button1.disabled = true;
+            button3.disabled = true;
+            button2.disabled = true;
+
+            nextBtn.style.display ="block";
+        }
+
+
+
+
 
 
 
