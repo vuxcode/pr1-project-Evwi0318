@@ -294,7 +294,7 @@
         <header>
             <div class="timer">
                 <div class="time_left_txt">Time Left</div>
-                <div class="timer_sec">15</div>
+                <div class="timer_sec" id="timecount2">15</div>
             </div>
         </header>
         <section>
@@ -308,7 +308,7 @@
         </section>
         <footer>
             <div class="total_que">Question 2 of 4</div>
-            <button class="next_btn">Next</button>
+            <button class="next_btn" id="nextbtn2">Next</button>
         </footer>
     </div>
 
@@ -324,7 +324,7 @@
         <header>
             <div class="timer">
                 <div class="time_left_txt">Time Left</div>
-                <div class="timer_sec">15</div>
+                <div class="timer_sec" id="timecount3">15</div>
             </div>
         </header>
         <section>
@@ -338,7 +338,7 @@
         </section>
         <footer>
             <div class="total_que">Question 3 of 4</div>
-            <button class="next_btn">Next</button>
+            <button class="next_btn" id="nextbtn3">Next</button>
         </footer>
     </div>
 
@@ -352,7 +352,7 @@
         <header>
             <div class="timer">
                 <div class="time_left_txt">Time Left</div>
-                <div class="timer_sec">15</div>
+                <div class="timer_sec" id="timecount4">15</div>
             </div>
         </header>
         <section>
@@ -367,7 +367,7 @@
         </section>
         <footer>
             <div class="total_que">Question 4 of 4</div>
-            <button class="next_btn">Next</button>
+            <button class="next_btn" id="nextbtn4">Next</button>
         </footer>
     </div>
 
@@ -415,6 +415,9 @@
         var quizBox3 = document.getElementById("quizbox3");
         var quizBox4 = document.getElementById("quizbox4");
         var nextBtn = document.getElementById("nextbtn");
+        var nextBtn2 = document.getElementById("nextbtn2");
+        var nextBtn3 = document.getElementById("nextbtn3");
+        var nextBtn4 = document.getElementById("nextbtn4");
         var resultBox = document.getElementById("resultBox");
         var optionList = document.getElementById("optionlist");
         var queText = document.getElementById("quetext");
@@ -444,7 +447,12 @@
 
         // Variables to track quiz state
         var timerDisplay = document.getElementById("timecount");
+        var timerDisplay2 = document.getElementById("timecount2");
+        var timerDisplay3 = document.getElementById("timecount3");
+        var timerDisplay4 = document.getElementById("timecount4");
         var timeValue = 15;        // Time per question (seconds)
+        var timerId; // global variable to hold the interval ID
+
 
 
 
@@ -482,9 +490,13 @@
         };
 
 
-        //Q1 WHEN BUTTON OPTIONS IS CLICKED, DISABLE THE REST OF THE BUTTONS
+
+
+        //Q1 WHEN BUTTON OPTIONS IS CLICKED, DISABLE THE REST OF THE BUTTONS, 
+        //IF USER PRESS WRONG BUTTON IT WILLL BE HIGHLIGHTED IN RED AND RIGHT ANSWER IN GREEN
         button1.onclick = function () {
-            
+
+            clearInterval(timerId);
             button1.style.background = "green";
             button1.style.color = "white";
 
@@ -492,12 +504,13 @@
             button3.disabled = true;
             button4.disabled = true;
 
-            
 
-            nextBtn.style.display ="block";
+
+            nextBtn.style.display = "block";
         }
 
         button2.onclick = function () {
+             clearInterval(timerId);
             button2.style.background = "red";
             button2.style.color = "white";
             button1.style.background = "green";
@@ -507,11 +520,12 @@
             button3.disabled = true;
             button4.disabled = true;
 
-            nextBtn.style.display ="block";
+            nextBtn.style.display = "block";
         }
 
 
         button3.onclick = function () {
+             clearInterval(timerId);
             button3.style.background = "red";
             button3.style.color = "white";
             button1.style.background = "green";
@@ -521,10 +535,11 @@
             button2.disabled = true;
             button4.disabled = true;
 
-            nextBtn.style.display ="block";
+            nextBtn.style.display = "block";
         }
 
         button4.onclick = function () {
+             clearInterval(timerId);
             button4.style.background = "red";
             button4.style.color = "white";
             button1.style.background = "green";
@@ -534,7 +549,7 @@
             button3.disabled = true;
             button2.disabled = true;
 
-            nextBtn.style.display ="block";
+            nextBtn.style.display = "block";
         }
 
 
@@ -543,11 +558,36 @@
 
 
 
-        // When next button is clicked, it goes to next question
+        // Q1 NEXTBTN When next button is clicked, it goes to next question
         nextBtn.onclick = function () {
+            quizBox.style.display = "none";
+            quizBox2.style.display = "block";
+
+            startTimer2();
 
         };
 
+        nextBtn2.onclick = function () {
+            quizBox2.style.display = "none";
+            quizBox3.style.display = "block";
+
+            startTimer3();
+
+        };
+        nextBtn3.onclick = function () {
+            quizBox3.style.display = "none";
+            quizBox4.style.display = "block";
+
+            startTimer4();
+
+        };
+        nextBtn4.onclick = function () {
+            quizBox4.style.display = "none";
+            resultBox.style.display = "block";
+
+
+
+        };
 
 
 
@@ -558,24 +598,104 @@
         // MAIN FUNCTIONSs ======================================================
 
 
-        function startTimer(timer) {
+        //Q1 TIMER
+        function startTimer() {
+            clearInterval(timerId); // clear any previous timer
 
-            clearInterval(timer); // Clear any existing timer
-            timeLeft = 15; // Reset time
-            timerDisplay.textContent = timeLeft; // Show initial time
+            var timeLeft = 15;
+            timerDisplay.textContent = timeLeft;
 
-            timer = setInterval(function () {
+            timerId = setInterval(function () {
                 timeLeft--;
                 if (timeLeft <= 0) {
-                    clearInterval(timer);
+                    clearInterval(timerId);
                     timerDisplay.textContent = "Time's up!";
-                    // Optionally show next button or disable input here
+                    button1.disabled = true;
+                    button2.disabled = true;
+                    button3.disabled = true;
+                    button4.disabled = true;
+                    nextBtn.style.display = "block";
                 } else {
                     timerDisplay.textContent = timeLeft;
                 }
             }, 1000);
-
         }
+
+
+        //Q2 TIMER
+        function startTimer2() {
+            clearInterval(timerId); // clear any previous timer
+
+            var timeLeft = 15;
+            timerDisplay2.textContent = timeLeft;
+
+            timerId = setInterval(function () {
+                timeLeft--;
+                if (timeLeft <= 0) {
+                    clearInterval(timerId);
+                    timerDisplay2.textContent = "Time's up!";
+                    button5.disabled = true;
+                    button6.disabled = true;
+                    button7.disabled = true;
+                    button8.disabled = true;
+
+                    nextBtn2.style.display = "block";
+                } else {
+                    timerDisplay2.textContent = timeLeft;
+                }
+            }, 1000);
+        }
+
+
+
+
+
+        //Q3 TIMER
+        function startTimer3() {
+            clearInterval(timerId); // clear any previous timer
+
+            var timeLeft = 15;
+            timerDisplay3.textContent = timeLeft;
+
+            timerId = setInterval(function () {
+                timeLeft--;
+                if (timeLeft <= 0) {
+                    clearInterval(timerId);
+                    timerDisplay3.textContent = "Time's up!";
+                    button9.disabled = true;
+                    button10.disabled = true;
+                    button11.disabled = true;
+                    button12.disabled = true;
+
+                    nextBtn3.style.display = "block";
+                } else {
+                    timerDisplay3.textContent = timeLeft;
+                }
+            }, 1000);
+        }
+
+
+
+
+        //Q4 TIMER
+         function startTimer4() {
+            clearInterval(timerId); // clear any previous timer
+
+            var timeLeft = 15;
+            timerDisplay4.textContent = timeLeft;
+
+            timerId = setInterval(function () {
+                timeLeft--;
+                if (timeLeft <= 0) {
+                    clearInterval(timerId);
+                    timerDisplay4.textContent = "Time's up!";
+                    
+                } else {
+                    timerDisplay4.textContent = timeLeft;
+                }
+            }, 1000);
+        }
+
 
 
 
