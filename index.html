@@ -308,7 +308,7 @@
         </section>
         <footer>
             <div class="total_que">Question 2 of 4</div>
-            <button class="next_btn" id="nextbtn2">Next</button>
+            <button class="next_btn" id="nextbtn2" style="display: none;">Next</button>
         </footer>
     </div>
 
@@ -338,7 +338,7 @@
         </section>
         <footer>
             <div class="total_que">Question 3 of 4</div>
-            <button class="next_btn" id="nextbtn3">Next</button>
+            <button class="next_btn" id="nextbtn3" style="display: none;">Next</button>
         </footer>
     </div>
 
@@ -367,7 +367,7 @@
         </section>
         <footer>
             <div class="total_que">Question 4 of 4</div>
-            <button class="next_btn" id="nextbtn4">Next</button>
+            <button class="next_btn" id="nextbtn4" style="display: none;">Next</button>
         </footer>
     </div>
 
@@ -492,6 +492,25 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         //Q1 WHEN BUTTON OPTIONS IS CLICKED, DISABLE THE REST OF THE BUTTONS, 
         //IF USER PRESS WRONG BUTTON IT WILLL BE HIGHLIGHTED IN RED AND RIGHT ANSWER IN GREEN
         button1.onclick = function () {
@@ -551,6 +570,109 @@
 
             nextBtn.style.display = "block";
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+         //Q2 WHEN BUTTON OPTIONS IS CLICKED, DISABLE THE REST OF THE BUTTONS, 
+        //IF USER PRESS WRONG BUTTON IT WILLL BE HIGHLIGHTED IN RED AND RIGHT ANSWER IN GREEN
+
+        button5.onclick = function () {
+
+          clearInterval(timerId);
+            button5.style.background = "red";
+            button5.style.color = "white";
+            button8.style.background = "green";
+            button8.style.color = "white";
+
+            button6.disabled = true;
+            button7.disabled = true;
+            button8.disabled = true;
+
+            nextBtn2.style.display = "block";
+        }
+
+
+         button6.onclick = function () {
+
+          clearInterval(timerId);
+            button6.style.background = "red";
+            button6.style.color = "white";
+            button8.style.background = "green";
+            button8.style.color = "white";
+
+            button5.disabled = true;
+            button7.disabled = true;
+            button8.disabled = true;
+
+            nextBtn2.style.display = "block";
+        }
+          button7.onclick = function () {
+
+          clearInterval(timerId);
+            button7.style.background = "red";
+            button7.style.color = "white";
+            button8.style.background = "green";
+            button8.style.color = "white";
+
+            button6.disabled = true;
+            button7.disabled = true;
+            button8.disabled = true;
+
+            nextBtn2.style.display = "block";
+        }
+
+
+          button8.onclick = function () {
+
+          clearInterval(timerId);
+           
+            button8.style.background = "green";
+            button8.style.color = "white";
+
+            button5.disabled = true;
+            button7.disabled = true;
+            button6.disabled = true;
+            button8.disabled = true;
+
+            nextBtn2.style.display = "block";
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
