@@ -53,8 +53,7 @@
 
 
         .info_box,
-        .quiz_box,
-        .word_scramble_container {
+        .quiz_box {
             display: none;
             width: 540px;
             margin: 90px auto;
@@ -67,6 +66,18 @@
             max-width: 50;
 
 
+
+        }
+
+        .word_scramble_container {
+            display: none;
+            margin: 90px auto;
+            background: #2d2d2d;
+            color: #fff;
+            padding-left: 15px;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            padding-right: 15px;
 
         }
 
@@ -182,6 +193,34 @@
             border-radius: 10px;
             cursor: pointer;
         }
+
+
+
+        .input_container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .user_input {
+            padding: 10px;
+            font-size: 16px;
+            width: 80%;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        .submit_btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 10px;
+            cursor: pointer;
+            background-color: #5372F0;
+            color: white;
+            border: none;
+        }
     </style>
 </head>
 
@@ -262,15 +301,6 @@
                 <button class="opt" id="4">HOVER TYPE MAKESHIFT LANGUAGE</button>
             </div>
 
-            <!-- Word scramble game container  -->
-            <div class="word_scramble_container" id="wordscramblegame">
-                <!-- Input area for user to type unscrambled word -->
-                <div class="input_container" id="userInputcont">
-                    <input type="text" class="user_input" placeholder="Type your answer here...">
-                    <button class="submit_btn" id="submitbtn">Submit</button>
-                </div>
-            </div>
-
         </section>
         <footer>
             <!-- Shows current question number (e.g. "1 of 5") -->
@@ -329,7 +359,7 @@
         </header>
         <section>
             <div class="que_text">3. Unscramble the letters (B,D,E,R,A) to form a word:</div>
-            <div class="word_scramble_container">
+            <div class="word_scramble_container" style="display: block;">
                 <div class="input_container">
                     <input type="text" class="user_input" placeholder="Type your answer here...">
                     <button class="submit_btn">Submit</button>
@@ -529,7 +559,7 @@
         }
 
         button2.onclick = function () {
-             clearInterval(timerId);
+            clearInterval(timerId);
             button2.style.background = "red";
             button2.style.color = "white";
             button1.style.background = "green";
@@ -544,7 +574,7 @@
 
 
         button3.onclick = function () {
-             clearInterval(timerId);
+            clearInterval(timerId);
             button3.style.background = "red";
             button3.style.color = "white";
             button1.style.background = "green";
@@ -558,7 +588,7 @@
         }
 
         button4.onclick = function () {
-             clearInterval(timerId);
+            clearInterval(timerId);
             button4.style.background = "red";
             button4.style.color = "white";
             button1.style.background = "green";
@@ -589,12 +619,12 @@
 
 
 
-         //Q2 WHEN BUTTON OPTIONS IS CLICKED, DISABLE THE REST OF THE BUTTONS, 
+        //Q2 WHEN BUTTON OPTIONS IS CLICKED, DISABLE THE REST OF THE BUTTONS, 
         //IF USER PRESS WRONG BUTTON IT WILLL BE HIGHLIGHTED IN RED AND RIGHT ANSWER IN GREEN
 
         button5.onclick = function () {
 
-          clearInterval(timerId);
+            clearInterval(timerId);
             button5.style.background = "red";
             button5.style.color = "white";
             button8.style.background = "green";
@@ -608,9 +638,9 @@
         }
 
 
-         button6.onclick = function () {
+        button6.onclick = function () {
 
-          clearInterval(timerId);
+            clearInterval(timerId);
             button6.style.background = "red";
             button6.style.color = "white";
             button8.style.background = "green";
@@ -622,9 +652,9 @@
 
             nextBtn2.style.display = "block";
         }
-          button7.onclick = function () {
+        button7.onclick = function () {
 
-          clearInterval(timerId);
+            clearInterval(timerId);
             button7.style.background = "red";
             button7.style.color = "white";
             button8.style.background = "green";
@@ -638,10 +668,10 @@
         }
 
 
-          button8.onclick = function () {
+        button8.onclick = function () {
 
-          clearInterval(timerId);
-           
+            clearInterval(timerId);
+
             button8.style.background = "green";
             button8.style.color = "white";
 
@@ -800,7 +830,7 @@
 
 
         //Q4 TIMER
-         function startTimer4() {
+        function startTimer4() {
             clearInterval(timerId); // clear any previous timer
 
             var timeLeft = 15;
@@ -811,7 +841,7 @@
                 if (timeLeft <= 0) {
                     clearInterval(timerId);
                     timerDisplay4.textContent = "Time's up!";
-                    
+
                 } else {
                     timerDisplay4.textContent = timeLeft;
                 }
