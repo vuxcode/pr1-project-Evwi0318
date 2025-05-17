@@ -53,7 +53,8 @@
 
 
         .info_box,
-        .quiz_box {
+        .quiz_box,
+        .result_box {
             display: none;
             width: 540px;
             margin: 90px auto;
@@ -122,6 +123,21 @@
             border-radius: 10px;
             cursor: pointer;
         }
+        .result_box .buttons button {
+            height: 40px;
+            width: 120px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .result_box h2{
+            text-align: center;
+        }
+
+        .playagain_text p{
+             text-align: center;
+        }
+
 
         .timer {
             display: block;
@@ -417,9 +433,9 @@
         <div class="score_text">
             <h1>GAME OVER !</h1>
             <h2>YOUR SCORE</h2>
-            <h2>0</h2>
+            <h2 id="score">0</h2>
         </div>
-         <div class="playagain_text">
+         <div class="playagain_text" >
             <p>Want to play again?</p>
          </div>
         <div class="buttons">
@@ -467,7 +483,8 @@
         var totalQue = document.getElementById("totalque");
         var uinput = document.getElementById("userinput");
         var submitbutton = document.getElementById("submitbtn");
-
+        var points = document.getElementById("score");
+        
 
 
         //buttons for question options
@@ -493,6 +510,7 @@
 
 
         // Variables to track quiz state
+        var userscore = 0;
         var timerDisplay = document.getElementById("timecount");
         var timerDisplay2 = document.getElementById("timecount2");
         var timerDisplay3 = document.getElementById("timecount3");
