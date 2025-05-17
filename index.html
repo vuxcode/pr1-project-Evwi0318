@@ -563,7 +563,7 @@
         };
 
 
-        // When Checkbutton is clicked, Check if user input is correct or not and show nextbtn
+        //Q4 When Checkbutton is clicked, Check if user input is correct or not and show nextbtn
         submitbutton.onclick = function () {
             var checkanswer = uinput.value.toLowerCase();
 
@@ -575,6 +575,7 @@
                 clearInterval(timerId);
                 wrdscramtries.style.display = "block";
                 amountoftries++;
+                userscore++;
                 submitbutton.style.background = "green";
                 submitbutton.style.color = "white";
                 submitbutton.textContent = "Correct " + "in: " + amountoftries + " tries";
@@ -628,6 +629,7 @@
         button1.onclick = function () {
 
             clearInterval(timerId);
+            userscore++;
             button1.style.background = "green";
             button1.style.color = "white";
 
@@ -753,7 +755,7 @@
         button8.onclick = function () {
 
             clearInterval(timerId);
-
+            userscore++;
             button8.style.background = "green";
             button8.style.color = "white";
 
@@ -787,7 +789,7 @@
         button9.onclick = function () {
 
             clearInterval(timerId);
-            
+            userscore++;
             button9.style.background = "green";
             button9.style.color = "white";
 
@@ -898,6 +900,7 @@
         nextBtn4.onclick = function () {
             quizBox4.style.display = "none";
             resultBox.style.display = "block";
+            points.textContent = userscore;
 
 
 
