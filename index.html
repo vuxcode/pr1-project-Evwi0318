@@ -221,6 +221,10 @@
             color: white;
             border: none;
         }
+
+        .submit_btn p{
+            display: inline;
+        }
     </style>
 </head>
 
@@ -362,7 +366,9 @@
             <div class="word_scramble_container" style="display: block;">
                 <div class="input_container">
                     <input type="text" class="user_input" id="userinput" placeholder="Type your answer here...">
-                    <button class="submit_btn" id="submitbtn">Check</button>
+                    <button class="submit_btn" id="submitbtn">Check
+                        <p id="aotries" style="display: none;">0</p>
+                    </button>
                 </div>
             </div>
         </section>
@@ -408,7 +414,14 @@
     <div class="result_box" id="resultBox" style="display: none;">
 
         <!-- Will display the final score -->
-        <div class="score_text"></div>
+        <div class="score_text">
+            <h1>GAME OVER !</h1>
+            <h2>YOUR SCORE</h2>
+            <h2>0</h2>
+        </div>
+         <div class="playagain_text">
+            <p>Want to play again?</p>
+         </div>
         <div class="buttons">
             <!-- Button to play the quiz again -->
             <button class="restart" id="restartbtn">Replay</button>
@@ -455,6 +468,8 @@
         var uinput = document.getElementById("userinput");
         var submitbutton = document.getElementById("submitbtn");
 
+
+
         //buttons for question options
         var button1 = document.getElementById("1");
         var button2 = document.getElementById("2");
@@ -482,8 +497,16 @@
         var timerDisplay2 = document.getElementById("timecount2");
         var timerDisplay3 = document.getElementById("timecount3");
         var timerDisplay4 = document.getElementById("timecount4");
-        var timeValue = 15;        // Time per question (seconds)
-        var timerId; // global variable to hold the interval ID
+        var wrdscramtries = document.getElementById("aotries");
+
+        // Time per question (seconds)
+        var timeValue = 15;       
+
+        // global variable to hold the interval ID
+        var timerId; 
+
+        //wordscramble tries
+        var amountoftries = 0;
 
 
 
@@ -526,26 +549,34 @@
         submitbutton.onclick = function () {
             var checkanswer = uinput.value.toLowerCase();
 
+            wrdscramtries.textContent = amountoftries;
+
 
 
             if (checkanswer == "bread") {
                 clearInterval(timerId);
+                wrdscramtries.style.display = "block";
+                amountoftries++;
                 submitbutton.style.background = "green";
                 submitbutton.style.color = "white";
-                submitbutton.textContent = "Correct";
+                submitbutton.textContent = "Correct " + "in: " + amountoftries + " tries";
                 submitbutton.disabled = true;
                 nextBtn3.style.display = "block";
             }
             else if (checkanswer == "") {
+                wrdscramtries.style.display = "block";
+                amountoftries++;
                 submitbutton.style.background = "red";
                 submitbutton.style.color = "white";
-                submitbutton.textContent = "INVALID INPUT, TRY AGAIN";
+                submitbutton.textContent = "INVALID INPUT, TRIES: " + amountoftries;
 
             }
             else {
+                wrdscramtries.style.display = "block";
+                amountoftries++;
                 submitbutton.style.background = "red";
                 submitbutton.style.color = "white";
-                submitbutton.textContent = "WRONG, CHECK AGAIN";
+                submitbutton.textContent = "WRONG | CHECK AGAIN | TRIES: " + amountoftries;
             }
 
 
@@ -732,6 +763,86 @@
 
 
 
+            //Q4 WHEN BUTTON OPTIONS IS CLICKED, DISABLE THE REST OF THE BUTTONS, 
+        //IF USER PRESS WRONG BUTTON IT WILLL BE HIGHLIGHTED IN RED AND RIGHT ANSWER IN GREEN
+
+        button9.onclick = function () {
+
+            clearInterval(timerId);
+            
+            button9.style.background = "green";
+            button9.style.color = "white";
+
+            button10.disabled = true;
+            button11.disabled = true;
+            button12.disabled = true;
+
+            nextBtn4.style.display = "block";
+        }
+
+
+        button10.onclick = function () {
+
+            clearInterval(timerId);
+            button10.style.background = "red";
+            button10.style.color = "white";
+            button9.style.background = "green";
+            button9.style.color = "white";
+
+            button11.disabled = true;
+            button12.disabled = true;
+            button9.disabled = true;
+
+            nextBtn4.style.display = "block";
+        }
+        button11.onclick = function () {
+
+            clearInterval(timerId);
+            button11.style.background = "red";
+            button11.style.color = "white";
+            button9.style.background = "green";
+            button9.style.color = "white";
+
+            button10.disabled = true;
+            button9.disabled = true;
+            button12.disabled = true;
+
+            nextBtn4.style.display = "block";
+        }
+
+
+        button12.onclick = function () {
+
+            clearInterval(timerId);
+            button12.style.background = "red";
+            button12.style.color = "white";
+            button9.style.background = "green";
+            button9.style.color = "white";
+
+            button12.disabled = true;
+            button11.disabled = true;
+            button10.disabled = true;
+
+            nextBtn4.style.display = "block";
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -839,7 +950,7 @@
         function startTimer3() {
             clearInterval(timerId); // clear any previous timer
 
-            var timeLeft = 15;
+            var timeLeft = 30;
             timerDisplay3.textContent = timeLeft;
 
             timerId = setInterval(function () {
@@ -850,7 +961,7 @@
 
                     submitbutton.style.background = "red";
                     submitbutton.style.color = "white";
-                    submitbutton.textContent = "TIME'S UP :(";
+                    submitbutton.textContent = "TIME'S UP / TRIES: "+ amountoftries;
                     submitbutton.disabled = true;
 
                     nextBtn3.style.display = "block";
