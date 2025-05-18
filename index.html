@@ -313,7 +313,10 @@
             <!-- Container for question text -->
             <div class="que_text" id="quetext">
                 <p>1. WHAT DOES HTML STAND FOR?</p>
-                
+
+                <img src="https://www.oxfordwebstudio.com/user/pages/06.da-li-znate/sta-je-html/sta-je-html.jpg"
+                    alt="HTML5 Logo" style="width:200px; height: auto; margin-top:15px;">
+
             </div>
             <!-- Container for multiple choice options -->
             <div class="option_list" id="optionlist">
@@ -350,7 +353,12 @@
             </div>
         </header>
         <section>
-            <div class="que_text">2. What does CSS stand for?</div>
+            <div class="que_text">2. What does CSS stand for?
+
+                <img src="https://www.oxfordwebstudio.com/user/pages/06.da-li-znate/sta-je-css/sta-je-css.png"
+                    alt="HTML5 Logo" style="width:200px; height: auto; margin-top:15px;">
+
+            </div>
             <div class="option_list" id="optionlist2">
                 <button class="opt" id="5">Common Style Sheet</button>
                 <button class="opt" id="6">Colorful Style Sheet</button>
@@ -380,7 +388,12 @@
             </div>
         </header>
         <section>
-            <div class="que_text">3. Unscramble the letters (B,D,E,R,A) to form a word:</div>
+            <div class="que_text">3. Unscramble the letters (B,D,E,R,A) to form a word:
+                <div style="display: flex; justify-content: center;">
+                    <img src="https://universityrelations.wvu.edu/files/e6e80efc-5401-413c-a940-b200cd165b1a/877x585?cb=ca69ec804b71e5957ceb9f1aa7fb94a3"
+                        alt="Bread Image" style="width:200px; height: auto; margin-top:15px;">
+                </div>
+            </div>
             <div class="word_scramble_container" style="display: block;">
                 <div class="input_container">
                     <input type="text" class="user_input" id="userinput" placeholder="Type your answer here...">
@@ -410,7 +423,13 @@
             </div>
         </header>
         <section>
-            <div class="que_text">4. What country gave the USA the Statue of Liberty?</div>
+           
+             <div class="que_text">4. What country gave the USA the Statue of Liberty?
+                <div style="display: flex; justify-content: center;">
+                    <img src="https://npf-prod.imgix.net/uploads/shutterstock_56386615.jpg?auto=compress%2Cformat&fit=max&q=80&w=1600"
+                        alt="Liberty" style="width:200px; height: auto; margin-top:15px; margin-bottom: 15px;">
+                </div>
+            </div>
             <div class="option_list" id="optionlist3">
 
                 <button class="opt" id="9">France</button>
@@ -437,7 +456,7 @@
             <h2>YOUR SCORE</h2>
             <h2 id="score">0</h2>
         </div>
-    
+
         <div class="buttons">
             <!-- Button to play the quiz again -->
             <button class="restart" id="restartbtn">Replay</button>
@@ -655,7 +674,7 @@
             userscore++;
             button1.style.background = "green";
             button1.style.color = "white";
-            
+
             button1.disabled = true;
             button2.disabled = true;
             button3.disabled = true;
@@ -782,8 +801,8 @@
             userscore++;
             button8.style.background = "green";
             button8.style.color = "white";
-            
-           
+
+
             button5.disabled = true;
             button7.disabled = true;
             button6.disabled = true;
@@ -817,7 +836,7 @@
             userscore++;
             button9.style.background = "green";
             button9.style.color = "white";
- 
+
             button9.disabled = true;
             button10.disabled = true;
             button11.disabled = true;
@@ -978,7 +997,7 @@
                     button3.disabled = true;
                     button4.disabled = true;
 
-                    
+
                     nextBtn.style.display = "block";
                 } else {
                     timerDisplay.textContent = timeLeft;
@@ -1015,7 +1034,7 @@
                     button7.disabled = true;
                     button8.disabled = true;
 
-                   
+
 
                     nextBtn2.style.display = "block";
                 } else {
