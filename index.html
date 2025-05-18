@@ -123,6 +123,7 @@
             border-radius: 10px;
             cursor: pointer;
         }
+
         .result_box .buttons button {
             height: 40px;
             width: 120px;
@@ -130,12 +131,12 @@
             cursor: pointer;
         }
 
-        .result_box h2{
+        .result_box h2 {
             text-align: center;
         }
 
-        .playagain_text p{
-             text-align: center;
+        .playagain_text p {
+            text-align: center;
         }
 
 
@@ -238,7 +239,7 @@
             border: none;
         }
 
-        .submit_btn p{
+        .submit_btn p {
             display: inline;
         }
     </style>
@@ -263,7 +264,7 @@
     <h1>5 CHALLENGE GAME</h1>
 
     <!-- Start quiz button -->
-    <div class="start_btn" id="startquiz"><button>StartQuiz</button></div>
+    <div class="start_btn" id="startquiz"><button>Start Quiz</button></div>
 
 
     <!-- Info boxe -->
@@ -339,6 +340,15 @@
 
 
 
+
+
+
+
+
+
+
+
+
     <!-- quiz Box 2 -->
     <div class="quiz_box" id="quizbox2" style="display: none;">
         <header>
@@ -357,10 +367,23 @@
             </div>
         </section>
         <footer>
-            <div class="total_que">Question 2 of 4</div>
+            <div class="total_que">Question 2 of 5</div>
             <button class="next_btn" id="nextbtn2" style="display: none;">Next</button>
         </footer>
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -389,10 +412,21 @@
             </div>
         </section>
         <footer>
-            <div class="total_que">Question 3 of 4</div>
+            <div class="total_que">Question 3 of 5</div>
             <button class="next_btn" id="nextbtn3" style="display: none;">Next</button>
         </footer>
     </div>
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -418,10 +452,62 @@
             </div>
         </section>
         <footer>
-            <div class="total_que">Question 4 of 4</div>
+            <div class="total_que">Question 4 of 5</div>
             <button class="next_btn" id="nextbtn4" style="display: none;">Next</button>
         </footer>
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- quiz Box 5 -->
+    <div class="quiz_box" id="quizbox5" style="display: none;">
+        <header>
+            <div class="timer">
+                <div class="time_left_txt">Time Left</div>
+                <div class="timer_sec" id="timecount5">15</div>
+            </div>
+        </header>
+        <section>
+            <div class="que_text"> Memory Game | Find the matching pairs !</div>
+            <div class="option_list2" id="optionlist4">
+
+                <button class="card" id="13">?</button>
+                <button class="card" id="14">?</button>
+                <button class="card" id="15">?</button>
+                <button class="card" id="16">?</button>
+                <button class="card" id="17">?</button>
+                <button class="card" id="18">?</button>
+            </div>
+        </section>
+        <footer>
+            <div class="total_que">Question 5 of 5</div>
+            <button class="next_btn" id="nextbtn5" style="display: none;">Next</button>
+        </footer>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -435,14 +521,10 @@
             <h2>YOUR SCORE</h2>
             <h2 id="score">0</h2>
         </div>
-         <div class="playagain_text" >
-            <p>Want to play again?</p>
-         </div>
         <div class="buttons">
             <!-- Button to play the quiz again -->
             <button class="restart" id="restartbtn">Replay</button>
-            <!-- Button to exit the quiz -->
-            <button class="quit" id="quitbtn">Quit</button>
+
         </div>
     </div>
 
@@ -473,10 +555,12 @@
         var quizBox2 = document.getElementById("quizbox2");
         var quizBox3 = document.getElementById("quizbox3");
         var quizBox4 = document.getElementById("quizbox4");
+        var quizBox5 = document.getElementById("quizbox5");    
         var nextBtn = document.getElementById("nextbtn");
         var nextBtn2 = document.getElementById("nextbtn2");
         var nextBtn3 = document.getElementById("nextbtn3");
         var nextBtn4 = document.getElementById("nextbtn4");
+        var nextBtn5 = document.getElementById("nextbtn5");                                         
         var resultBox = document.getElementById("resultBox");
         var optionList = document.getElementById("optionlist");
         var queText = document.getElementById("quetext");
@@ -484,7 +568,9 @@
         var uinput = document.getElementById("userinput");
         var submitbutton = document.getElementById("submitbtn");
         var points = document.getElementById("score");
-        
+        var restart = document.getElementById("restartbtn");
+        var quit = document.getElementById("quitbtn");
+
 
 
         //buttons for question options
@@ -515,13 +601,14 @@
         var timerDisplay2 = document.getElementById("timecount2");
         var timerDisplay3 = document.getElementById("timecount3");
         var timerDisplay4 = document.getElementById("timecount4");
+        var timerDisplay5 = document.getElementById("timecount5");                             
         var wrdscramtries = document.getElementById("aotries");
 
         // Time per question (seconds)
-        var timeValue = 15;       
+        var timeValue = 15;
 
         // global variable to hold the interval ID
-        var timerId; 
+        var timerId;
 
         //wordscramble tries
         var amountoftries = 0;
@@ -563,6 +650,28 @@
         };
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         //Q4 When Checkbutton is clicked, Check if user input is correct or not and show nextbtn
         submitbutton.onclick = function () {
             var checkanswer = uinput.value.toLowerCase();
@@ -587,7 +696,7 @@
                 amountoftries++;
                 submitbutton.style.background = "red";
                 submitbutton.style.color = "white";
-                submitbutton.textContent = "INVALID INPUT, TRIES: " + amountoftries;
+                submitbutton.textContent = "INPUT EMPTY, TRY AGAIN | TRIES: " + amountoftries;
 
             }
             else {
@@ -632,7 +741,8 @@
             userscore++;
             button1.style.background = "green";
             button1.style.color = "white";
-
+            
+            button1.disabled = true;
             button2.disabled = true;
             button3.disabled = true;
             button4.disabled = true;
@@ -745,7 +855,7 @@
             button8.style.color = "white";
 
             button6.disabled = true;
-            button7.disabled = true;
+            button5.disabled = true;
             button8.disabled = true;
 
             nextBtn2.style.display = "block";
@@ -758,7 +868,8 @@
             userscore++;
             button8.style.background = "green";
             button8.style.color = "white";
-
+            
+           
             button5.disabled = true;
             button7.disabled = true;
             button6.disabled = true;
@@ -783,7 +894,7 @@
 
 
 
-            //Q4 WHEN BUTTON OPTIONS IS CLICKED, DISABLE THE REST OF THE BUTTONS, 
+        //Q4 WHEN BUTTON OPTIONS IS CLICKED, DISABLE THE REST OF THE BUTTONS, 
         //IF USER PRESS WRONG BUTTON IT WILLL BE HIGHLIGHTED IN RED AND RIGHT ANSWER IN GREEN
 
         button9.onclick = function () {
@@ -792,7 +903,8 @@
             userscore++;
             button9.style.background = "green";
             button9.style.color = "white";
-
+ 
+            button9.disabled = true;
             button10.disabled = true;
             button11.disabled = true;
             button12.disabled = true;
@@ -872,7 +984,7 @@
 
 
 
-
+        //NEXT, QUIT AND RESTART BTNS ========================================
 
         // NEXTBTN When next button is clicked, it goes to next question
         nextBtn.onclick = function () {
@@ -897,14 +1009,46 @@
             startTimer4();
 
         };
+
         nextBtn4.onclick = function () {
             quizBox4.style.display = "none";
-            resultBox.style.display = "block";
-            points.textContent = userscore;
+            quizBox5.style.display = "block";
+
+            startTimer5();
+            
 
 
 
         };
+
+        nextBtn5.onclick = function () {
+            quizBox5.style.display = "none";
+            resultBox.style.display = "block";
+            points.textContent = userscore + " / 5";
+
+
+
+        };
+
+        restart.onclick = function () {
+            window.location.reload();
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -931,12 +1075,25 @@
                     button2.disabled = true;
                     button3.disabled = true;
                     button4.disabled = true;
+
+                    
                     nextBtn.style.display = "block";
                 } else {
                     timerDisplay.textContent = timeLeft;
                 }
             }, 1000);
         }
+
+
+
+
+
+
+
+
+
+
+
 
 
         //Q2 TIMER
@@ -956,12 +1113,25 @@
                     button7.disabled = true;
                     button8.disabled = true;
 
+                   
+
                     nextBtn2.style.display = "block";
                 } else {
                     timerDisplay2.textContent = timeLeft;
                 }
             }, 1000);
         }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -982,7 +1152,7 @@
 
                     submitbutton.style.background = "red";
                     submitbutton.style.color = "white";
-                    submitbutton.textContent = "TIME'S UP / TRIES: "+ amountoftries;
+                    submitbutton.textContent = "TIME'S UP / TRIES: " + amountoftries;
                     submitbutton.disabled = true;
 
                     nextBtn3.style.display = "block";
@@ -991,6 +1161,18 @@
                 }
             }, 1000);
         }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1017,6 +1199,42 @@
                 }
             }, 1000);
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //Q5 TIMER
+        function startTimer5() {
+            clearInterval(timerId); // clear any previous timer
+
+            var timeLeft = 25;
+            timerDisplay5.textContent = timeLeft;
+
+            timerId = setInterval(function () {
+                timeLeft--;
+                if (timeLeft <= 0) {
+                    clearInterval(timerId);
+                    timerDisplay5.textContent = "Time's up!";
+                    
+                  nextBtn5.style.display ="block";
+                } else {
+                    timerDisplay5.textContent = timeLeft;
+                }
+            }, 1000);
+        }
+
 
 
 
