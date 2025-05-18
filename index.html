@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>5CHALLENGE</title>
+    <title>QUIZGAME</title>
 
 
 
@@ -261,7 +261,7 @@
 
 <body>
 
-    <h1>5 CHALLENGE GAME</h1>
+    <h1>QUIZ GAME </h1>
 
     <!-- Start quiz button -->
     <div class="start_btn" id="startquiz"><button>Start Quiz</button></div>
@@ -313,6 +313,7 @@
             <!-- Container for question text -->
             <div class="que_text" id="quetext">
                 <p>1. WHAT DOES HTML STAND FOR?</p>
+                
             </div>
             <!-- Container for multiple choice options -->
             <div class="option_list" id="optionlist">
@@ -340,15 +341,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
     <!-- quiz Box 2 -->
     <div class="quiz_box" id="quizbox2" style="display: none;">
         <header>
@@ -367,23 +359,10 @@
             </div>
         </section>
         <footer>
-            <div class="total_que">Question 2 of 5</div>
+            <div class="total_que">Question 2 of 4</div>
             <button class="next_btn" id="nextbtn2" style="display: none;">Next</button>
         </footer>
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -412,21 +391,10 @@
             </div>
         </section>
         <footer>
-            <div class="total_que">Question 3 of 5</div>
+            <div class="total_que">Question 3 of 4</div>
             <button class="next_btn" id="nextbtn3" style="display: none;">Next</button>
         </footer>
     </div>
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -452,62 +420,10 @@
             </div>
         </section>
         <footer>
-            <div class="total_que">Question 4 of 5</div>
+            <div class="total_que">Question 4 of 4</div>
             <button class="next_btn" id="nextbtn4" style="display: none;">Next</button>
         </footer>
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!-- quiz Box 5 -->
-    <div class="quiz_box" id="quizbox5" style="display: none;">
-        <header>
-            <div class="timer">
-                <div class="time_left_txt">Time Left</div>
-                <div class="timer_sec" id="timecount5">15</div>
-            </div>
-        </header>
-        <section>
-            <div class="que_text"> Memory Game | Find the matching pairs !</div>
-            <div class="option_list2" id="optionlist4">
-
-                <button class="card" id="13">?</button>
-                <button class="card" id="14">?</button>
-                <button class="card" id="15">?</button>
-                <button class="card" id="16">?</button>
-                <button class="card" id="17">?</button>
-                <button class="card" id="18">?</button>
-            </div>
-        </section>
-        <footer>
-            <div class="total_que">Question 5 of 5</div>
-            <button class="next_btn" id="nextbtn5" style="display: none;">Next</button>
-        </footer>
-    </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -521,6 +437,7 @@
             <h2>YOUR SCORE</h2>
             <h2 id="score">0</h2>
         </div>
+    
         <div class="buttons">
             <!-- Button to play the quiz again -->
             <button class="restart" id="restartbtn">Replay</button>
@@ -555,12 +472,10 @@
         var quizBox2 = document.getElementById("quizbox2");
         var quizBox3 = document.getElementById("quizbox3");
         var quizBox4 = document.getElementById("quizbox4");
-        var quizBox5 = document.getElementById("quizbox5");    
         var nextBtn = document.getElementById("nextbtn");
         var nextBtn2 = document.getElementById("nextbtn2");
         var nextBtn3 = document.getElementById("nextbtn3");
         var nextBtn4 = document.getElementById("nextbtn4");
-        var nextBtn5 = document.getElementById("nextbtn5");                                         
         var resultBox = document.getElementById("resultBox");
         var optionList = document.getElementById("optionlist");
         var queText = document.getElementById("quetext");
@@ -601,7 +516,6 @@
         var timerDisplay2 = document.getElementById("timecount2");
         var timerDisplay3 = document.getElementById("timecount3");
         var timerDisplay4 = document.getElementById("timecount4");
-        var timerDisplay5 = document.getElementById("timecount5");                             
         var wrdscramtries = document.getElementById("aotries");
 
         // Time per question (seconds)
@@ -1009,22 +923,10 @@
             startTimer4();
 
         };
-
         nextBtn4.onclick = function () {
             quizBox4.style.display = "none";
-            quizBox5.style.display = "block";
-
-            startTimer5();
-            
-
-
-
-        };
-
-        nextBtn5.onclick = function () {
-            quizBox5.style.display = "none";
             resultBox.style.display = "block";
-            points.textContent = userscore + " / 5";
+            points.textContent = userscore + " / 4";
 
 
 
@@ -1199,42 +1101,6 @@
                 }
             }, 1000);
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        //Q5 TIMER
-        function startTimer5() {
-            clearInterval(timerId); // clear any previous timer
-
-            var timeLeft = 25;
-            timerDisplay5.textContent = timeLeft;
-
-            timerId = setInterval(function () {
-                timeLeft--;
-                if (timeLeft <= 0) {
-                    clearInterval(timerId);
-                    timerDisplay5.textContent = "Time's up!";
-                    
-                  nextBtn5.style.display ="block";
-                } else {
-                    timerDisplay5.textContent = timeLeft;
-                }
-            }, 1000);
-        }
-
 
 
 
