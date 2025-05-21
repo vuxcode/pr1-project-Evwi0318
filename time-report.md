@@ -26,4 +26,44 @@ For example:
   - *Created all the needed variables for the game*
   - *Added quizstate variables that reset info when game begins*
   - *Added event listeners for the buttons*
+
+- 2025-05-09 17:23 Worked for 2,5 hours.
+  - *Added first question page for the game with the list of options*
+   
+
+- 2025-05-13 18:20 Worked for 2 hours.
+  - *Added question counter to the quizbox footer*
+  - *Updated the quizbox style*
+
+
+- 2025-05-14 17:24 Worked for 4 hours.
+  - *Added questions to arrays in js*
+  - *Added timer to question 1*
+
+
+- 2025-05-15 20:00 Worked for 2 hours.
+  - *Removed questions from arrays*
+  - *Added timer to question 1*
+
+- 2025-05-16 18:00 Worked for 4 hours.
+  - *Added this function, When an option is pressed time stops*
+  - *Updated nextbtns so that onclick it brings you to next question*
+  - *Added code so buttons are highlighted when you click*
+  - *Fixed inputbox in Q3*
+
+
+- 2025-05-17 18:00 Worked for 3 hours.
+  - *Q3 checks for right answers and tracks amount of tries*
+  - *Fixed Resultbox design*
+  - *Made Resultbox show score*
+
+- 2025-05-18 18:00 Worked for 3 hours.
+  - *Added code for memorygame that i later deleted because it was too complicated.*
+  - *Added images to all Questions*
  
+ 
+================================================
+- TOTAL TIME WORKED ON PROJECT = 32hours  
+
+  
+
